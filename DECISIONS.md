@@ -25,8 +25,24 @@ This document outlines key assumptions and trade-offs made during development.
 - **Rationale**: Robust framework with built-in admin, ORM, and security features
 
 ### Frontend Framework
-- **Choice**: React with TypeScript
-- **Rationale**: Modern, type-safe development with good tooling
+- **Choice**: React with TypeScript and Vite
+- **Rationale**: Modern, type-safe development with fast build tooling and excellent developer experience
+
+### Component Architecture
+- **Choice**: Functional components with hooks over class components
+- **Rationale**: Simpler, more modern approach with better TypeScript integration
+
+### State Management
+- **Choice**: Local React state over external state management (Redux/Zustand)
+- **Rationale**: Simple application with minimal state; local state is sufficient and easier to maintain
+
+### API Integration
+- **Choice**: Native fetch API over axios
+- **Rationale**: No additional dependencies, built-in browser support, sufficient for this use case
+
+### UI/UX Design
+- **Choice**: Custom CSS over component libraries (Material-UI, Chakra)
+- **Rationale**: Full control over styling, smaller bundle size, matches case study requirements for custom design
 
 ### PDF Processing
 - **Choice**: pdfplumber (primary) with PyPDF2 as backup
@@ -57,4 +73,6 @@ This document outlines key assumptions and trade-offs made during development.
 - Automated test suite for different PDF formats
 - Support for additional financial fields (EBITDA, Net Income, etc.)
 - Improved error handling for malformed PDFs
-- Frontend integration and UI/UX design
+- Frontend unit testing with React Testing Library
+- Responsive design for mobile devices
+- File drag-and-drop functionality

@@ -44,9 +44,17 @@ This document outlines key assumptions and trade-offs made during development.
 - **Choice**: Remove $ symbols, spaces, convert (X) to -X, remove commas
 - **Rationale**: Standardizes financial values for consistent processing and storage
 
+### Testing Strategy
+- **Choice**: Manual testing with real 10-K PDF over automated unit tests
+- **Rationale**: PDF parsing is complex and benefits from real-world validation; manual testing ensures accuracy with actual financial documents
+
+### API Response Format
+- **Choice**: Simple JSON structure with nested results object
+- **Rationale**: Easy to parse by frontend, clear separation of metadata (period_end_date) and data (results)
+
 ## Future Considerations
 
-- Error handling for malformed PDFs
-- Support for additional financial fields
-- Improved UI/UX design
-- Comprehensive test coverage
+- Automated test suite for different PDF formats
+- Support for additional financial fields (EBITDA, Net Income, etc.)
+- Improved error handling for malformed PDFs
+- Frontend integration and UI/UX design

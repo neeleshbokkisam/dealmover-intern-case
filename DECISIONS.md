@@ -29,8 +29,20 @@ This document outlines key assumptions and trade-offs made during development.
 - **Rationale**: Modern, type-safe development with good tooling
 
 ### PDF Processing
-- **Choice**: PyPDF2 or pdfplumber
-- **Rationale**: Lightweight libraries suitable for text extraction
+- **Choice**: pdfplumber (primary) with PyPDF2 as backup
+- **Rationale**: pdfplumber provides better text extraction accuracy and handles complex PDF layouts better than PyPDF2
+
+### API Design
+- **Choice**: Django REST Framework with function-based views
+- **Rationale**: Simple, straightforward approach for single endpoint; easier to debug and maintain
+
+### Financial Data Extraction
+- **Choice**: Regex pattern matching over NLP/ML approaches
+- **Rationale**: Faster, more predictable, and sufficient for structured financial documents like 10-K forms
+
+### Value Normalization Strategy
+- **Choice**: Remove $ symbols, spaces, convert (X) to -X, remove commas
+- **Rationale**: Standardizes financial values for consistent processing and storage
 
 ## Future Considerations
 

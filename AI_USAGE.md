@@ -15,9 +15,9 @@ This document tracks AI tool usage throughout the project development. AI was us
 
 ### Backend Development
 - **Task**: Django setup and PDF parsing implementation
-- **AI Role**: [To be updated as development progresses]
-- **Human Role**: [To be updated as development progresses]
-- **Status**: 🔄 In Progress
+- **AI Role**: Suggested Django project structure, provided regex patterns for financial data extraction, helped with error handling patterns
+- **Human Role**: Designed overall API architecture, wrote core business logic, implemented PDF parsing strategy, made final decisions on pattern matching approach
+- **Status**: ✅ Complete
 
 ### Frontend Development
 - **Task**: React components and UI implementation

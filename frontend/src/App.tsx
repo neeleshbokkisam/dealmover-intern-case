@@ -6,6 +6,7 @@ import './App.css';
 interface FinancialData {
   revenue: string;
   cos: string;
+  operating_income: string;
 }
 
 function App() {

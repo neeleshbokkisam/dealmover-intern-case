@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 @api_view(['POST'])
 def extract_financial_data(request):
     """
-    Extract Revenue and Cost of Sales from uploaded PDF
+    Extract Revenue, Cost of Sales, and Operating Income from uploaded PDF
     """
     try:
         # Check if PDF file is provided
@@ -79,7 +79,7 @@ def extract_text_from_pdf(pdf_file):
 
 def extract_financial_values(text):
     """
-    Extract Revenue and Cost of Sales from text using regex patterns
+    Extract Revenue, Cost of Sales, and Operating Income from text using regex patterns
     """
     # Normalize text for better pattern matching
     text = text.replace('\n', ' ').replace('\r', ' ')
@@ -113,15 +113,29 @@ def extract_financial_values(text):
         r'cost\s+of\s+services[:\s]*\$?([0-9,]+(?:\([0-9,]+\))?)',
     ]
     
+    # Define patterns for Operating Income
+    operating_income_patterns = [
+        # Look for "Income from operations XXX,XXX" pattern
+        r'income\s+from\s+operations[:\s]*\$?([0-9,]+(?:\([0-9,]+\))?)',
+        # Look for "Operating income XXX,XXX" pattern
+        r'operating\s+income[:\s]*\$?([0-9,]+(?:\([0-9,]+\))?)',
+        # Look for "Operating earnings XXX,XXX" pattern
+        r'operating\s+earnings[:\s]*\$?([0-9,]+(?:\([0-9,]+\))?)',
+    ]
+    
     # Extract Revenue
     revenue = extract_value_with_patterns(text, revenue_patterns, "revenue")
     
     # Extract Cost of Sales
     cos = extract_value_with_patterns(text, cos_patterns, "cost of sales")
     
+    # Extract Operating Income
+    operating_income = extract_value_with_patterns(text, operating_income_patterns, "operating income")
+    
     return {
         'revenue': revenue,
-        'cos': cos
+        'cos': cos,
+        'operating_income': operating_income
     }
 
 def extract_value_with_patterns(text, patterns, field_name):

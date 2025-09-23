@@ -3,6 +3,7 @@ import React from 'react';
 interface FinancialData {
   revenue: string;
   cos: string;
+  operating_income: string;
 }
 
 interface ResultsGridProps {
@@ -19,9 +20,10 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ data, periodEndDate }) => {
     );
   }
 
-  // Calculate Gross Profit (Revenue - Cost of Sales)
+  // Calculate financial metrics
   const revenue = parseFloat(data.revenue) || 0;
   const costOfSales = parseFloat(data.cos) || 0;
+  const operatingIncome = parseFloat(data.operating_income) || 0;
   const grossProfit = revenue - costOfSales;
 
   return (
@@ -42,6 +44,10 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ data, periodEndDate }) => {
           <tr>
             <td>Gross Profit</td>
             <td>{grossProfit.toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td>Operating Income</td>
+            <td>{operatingIncome.toLocaleString()}</td>
           </tr>
         </tbody>
       </table>

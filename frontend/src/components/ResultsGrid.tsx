@@ -26,13 +26,34 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ data, periodEndDate }) => {
   const operatingIncome = parseFloat(data.operating_income) || 0;
   const grossProfit = revenue - costOfSales;
 
+  // Format the period end date for display
+  const formatPeriodEndDate = (dateString: string) => {
+    if (!dateString) return 'Period Not Specified';
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch {
+      return dateString;
+    }
+  };
+
   return (
     <div className="results-grid">
-      <h3>Financial Results - {periodEndDate}</h3>
+      <div className="statement-header">
+        <h3>Financial Statement Results</h3>
+        <div className="statement-period">
+          <span className="period-label">Statement Period:</span>
+          <span className="period-date">{formatPeriodEndDate(periodEndDate)}</span>
+        </div>
+      </div>
       <table className="financial-table">
         <thead>
           <tr>
-            <th>Metric</th>
+            <th>Financial Metric</th>
             <th>Value ($)</th>
           </tr>
         </thead>

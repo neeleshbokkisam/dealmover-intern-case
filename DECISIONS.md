@@ -61,8 +61,12 @@ This document outlines key assumptions and trade-offs made during development.
 - **Rationale**: Standardizes financial values for consistent processing and storage
 
 ### Testing Strategy
-- **Choice**: Manual testing with real 10-K PDF over automated unit tests
-- **Rationale**: PDF parsing is complex and benefits from real-world validation; manual testing ensures accuracy with actual financial documents
+- **Choice**: Hybrid approach - manual testing with real 10-K PDF + automated pytest tests
+- **Rationale**: PDF parsing is complex and benefits from real-world validation; automated tests ensure regression protection and code reliability
+
+### Stretch Goals Implementation
+- **Choice**: Operating Income extraction as additional financial field
+- **Rationale**: Common financial metric that provides more comprehensive financial analysis; follows same pattern as existing fields
 
 ### API Response Format
 - **Choice**: Simple JSON structure with nested results object

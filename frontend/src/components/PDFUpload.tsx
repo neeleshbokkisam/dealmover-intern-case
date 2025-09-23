@@ -32,11 +32,11 @@ const PDFUpload: React.FC<PDFUploadProps> = ({
 
   return (
     <div className="pdf-upload">
-      <h2>DealMover PDF Financial Data Extractor</h2>
+      <h2>📊 DealMover PDF Financial Data Extractor</h2>
       
       <div className="upload-section">
         <label htmlFor="pdf-file" className="file-label">
-          Choose PDF File
+          📄 Choose PDF File
         </label>
         <input
           id="pdf-file"
@@ -52,7 +52,7 @@ const PDFUpload: React.FC<PDFUploadProps> = ({
 
       <div className="date-section">
         <label htmlFor="period-date" className="date-label">
-          Period End Date (Optional)
+          📅 Period End Date (Optional)
         </label>
         <input
           id="period-date"
@@ -68,7 +68,16 @@ const PDFUpload: React.FC<PDFUploadProps> = ({
         disabled={!selectedFile || isLoading}
         className="extract-button"
       >
-        {isLoading ? 'Extracting...' : 'Extract Financial Data'}
+        {isLoading ? (
+          <>
+            <span className="loading-spinner"></span>
+            Extracting Financial Data...
+          </>
+        ) : (
+          <>
+            🔍 Extract Financial Data
+          </>
+        )}
       </button>
     </div>
   );

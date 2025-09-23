@@ -44,31 +44,31 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ data, periodEndDate }) => {
   return (
     <div className="results-grid">
       <div className="statement-header">
-        <h3>Financial Statement Results</h3>
+        <h3>📈 Financial Statement Results</h3>
         <div className="statement-period">
-          <span className="period-label">Statement Period:</span>
+          <span className="period-label">📅 Statement Period:</span>
           <span className="period-date">{formatPeriodEndDate(periodEndDate)}</span>
         </div>
       </div>
       <table className="financial-table">
         <thead>
           <tr>
-            <th>Financial Metric</th>
-            <th>Value ($)</th>
+            <th>💰 Financial Metric</th>
+            <th>💵 Value ($)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Revenue</td>
-            <td>{revenue.toLocaleString()}</td>
+            <td>📊 Revenue</td>
+            <td>${revenue.toLocaleString()}</td>
           </tr>
           <tr>
-            <td>Gross Profit</td>
-            <td>{grossProfit.toLocaleString()}</td>
+            <td>📈 Gross Profit</td>
+            <td>${grossProfit.toLocaleString()}</td>
           </tr>
           <tr>
-            <td>Operating Income</td>
-            <td>{operatingIncome.toLocaleString()}</td>
+            <td>⚡ Operating Income</td>
+            <td>${operatingIncome.toLocaleString()}</td>
           </tr>
         </tbody>
       </table>

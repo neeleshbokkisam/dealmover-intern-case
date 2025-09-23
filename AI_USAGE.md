@@ -1,9 +1,10 @@
 # AI Usage Disclosure
 
-This document tracks AI tool usage throughout the project development. AI was used strategically for specific tasks while maintaining human ownership of design and implementation decisions.
+This document tracks AI tool usage throughout the project. AI was used strategically for targeted help while a human developer retained ownership of architecture and final code quality.
 
 ## Tools Used
-- **Claude (Anthropic)**: Used for targeted assistance on specific development tasks
+- **Claude (Anthropic)**: Targeted assistance on specific development tasks (backend parsing, testing patterns)
+- **GPT-based coding assistant (Cursor/GPT-5)**: Pair-programming during UI polish (CSS improvements, minor JSX tweaks) and documentation updates
 
 ## Usage Log
 
@@ -20,9 +21,19 @@ This document tracks AI tool usage throughout the project development. AI was us
 - **Status**: ✅ Complete
 
 ### Frontend Development
-- **Task**: React components and UI implementation
-- **AI Role**: Suggested component structure, provided TypeScript interfaces, helped with API integration patterns and styling approach
-- **Human Role**: Designed overall UI/UX workflow, implemented component logic, made decisions on state management and error handling, created comprehensive styling
+- **Task**: React components and initial UI implementation
+- **AI Role**: Suggested component structure, provided TypeScript interfaces, helped with API integration patterns and baseline styling approach
+- **Human Role**: Designed overall UI/UX workflow, implemented component logic, made decisions on state management and error handling
+- **Status**: ✅ Complete
+
+### UI Polish
+- **Task**: Modernize styling, improve visual hierarchy, add responsive design and micro-animations
+- **AI Role** (Cursor/GPT-5): Proposed CSS upgrades (gradient background, glassmorphism card, enhanced table styles, focus/hover states, loading spinner), suggested minor JSX label/icon improvements in `PDFUpload.tsx` and `ResultsGrid.tsx`
+- **Human Role**: Reviewed suggestions, accepted edits, validated no functional regressions, ensured no new dependencies were introduced
+- **Files Updated**:
+  - `frontend/src/App.css` (comprehensive styling refresh, responsive rules)
+  - `frontend/src/components/PDFUpload.tsx` (labels/icons, loading UI)
+  - `frontend/src/components/ResultsGrid.tsx` (header icons, formatted values)
 - **Status**: ✅ Complete
 
 ### Testing & Documentation

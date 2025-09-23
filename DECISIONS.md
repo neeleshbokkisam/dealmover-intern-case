@@ -15,8 +15,8 @@ This document outlines key assumptions and trade-offs made during development.
 
 ### Frontend Design
 - **Assumption**: Simple grid display is sufficient for case study
-- **Trade-off**: Basic styling vs. comprehensive UI framework
-- **Rationale**: Focus on functionality over aesthetics
+- **Trade-off**: Custom CSS vs. adopting a component framework (e.g., MUI, Chakra)
+- **Rationale**: Favor lightweight, dependency-free styling while still achieving a professional look
 
 ## Technical Decisions
 
@@ -41,8 +41,8 @@ This document outlines key assumptions and trade-offs made during development.
 - **Rationale**: No additional dependencies, built-in browser support, sufficient for this use case
 
 ### UI/UX Design
-- **Choice**: Custom CSS over component libraries (Material-UI, Chakra)
-- **Rationale**: Full control over styling, smaller bundle size, matches case study requirements for custom design
+- **Choice**: Custom CSS with modern patterns (gradient background, glassmorphism card, micro-animations) over component libraries
+- **Rationale**: Full control over styling, smaller bundle size, and faster iteration without additional dependencies; UI polish achieved through handcrafted CSS
 
 ### PDF Processing
 - **Choice**: pdfplumber (primary) with PyPDF2 as backup
@@ -84,6 +84,14 @@ This document outlines key assumptions and trade-offs made during development.
 - **Choice**: Prominent header row with gradient styling and formatted statement period
 - **Rationale**: Improves user experience by clearly displaying financial statement context; professional appearance matches financial industry standards
 
+### UI Polish Decisions (This session)
+- **Background & Layout**: Purple-blue gradient with subtle radial overlays; glassmorphism on main container.
+- **Interactive States**: Hover/focus states, shimmer effects, and loading spinner to improve perceived performance.
+- **Typography & Hierarchy**: Increased header weights; added non-functional icons to improve scannability.
+- **Tables**: Larger spacing, soft borders, row hover highlights, and decorative gradient underline on table headers.
+- **Responsiveness**: Media queries for ≤768px and ≤480px adjusting paddings, font sizes, and layout spacing.
+- **Accessibility**: Stronger focus outlines on inputs; high-contrast text on colored backgrounds.
+
 ### API Response Format
 - **Choice**: Simple JSON structure with nested results object
 - **Rationale**: Easy to parse by frontend, clear separation of metadata (period_end_date) and data (results)
@@ -94,5 +102,6 @@ This document outlines key assumptions and trade-offs made during development.
 - Support for additional financial fields (EBITDA, Net Income, etc.)
 - Improved error handling for malformed PDFs
 - Frontend unit testing with React Testing Library
-- Responsive design for mobile devices
-- File drag-and-drop functionality
+- Further responsive refinements (compact table layout at very narrow widths)
+- File drag-and-drop functionality for PDF selection
+- Optional light/dark theme toggle using CSS variables

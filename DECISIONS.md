@@ -64,6 +64,14 @@ This document outlines key assumptions and trade-offs made during development.
 - **Choice**: Hybrid approach - manual testing with real 10-K PDF + automated pytest tests
 - **Rationale**: PDF parsing is complex and benefits from real-world validation; automated tests ensure regression protection and code reliability
 
+### Test Framework Selection
+- **Choice**: pytest with pytest-django over Django's built-in test framework
+- **Rationale**: More powerful assertion syntax, better fixture support, cleaner test organization, and superior debugging capabilities
+
+### Test Organization
+- **Choice**: Separate unit and integration test directories with comprehensive coverage
+- **Rationale**: Clear separation of concerns; unit tests focus on individual functions, integration tests validate API behavior and error handling
+
 ### Stretch Goals Implementation
 - **Choice**: Operating Income extraction as additional financial field
 - **Rationale**: Common financial metric that provides more comprehensive financial analysis; follows same pattern as existing fields

@@ -76,6 +76,14 @@ This document outlines key assumptions and trade-offs made during development.
 - **Choice**: Operating Income extraction as additional financial field
 - **Rationale**: Common financial metric that provides more comprehensive financial analysis; follows same pattern as existing fields
 
+### Comprehensive Testing Strategy
+- **Choice**: End-to-end validation suite for all stretch goals
+- **Rationale**: Ensures all implemented features work correctly together; validates API functionality, test suite execution, and UI enhancements
+
+### UI Enhancement Approach
+- **Choice**: Prominent header row with gradient styling and formatted statement period
+- **Rationale**: Improves user experience by clearly displaying financial statement context; professional appearance matches financial industry standards
+
 ### API Response Format
 - **Choice**: Simple JSON structure with nested results object
 - **Rationale**: Easy to parse by frontend, clear separation of metadata (period_end_date) and data (results)

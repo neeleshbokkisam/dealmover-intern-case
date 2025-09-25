@@ -38,7 +38,7 @@ function App() {
         formData.append('period_end_date', periodEndDate);
       }
 
-      const response = await fetch('http://localhost:8000/api/extract/', {
+      const response = await fetch('http://localhost:8001/api/extract/', {
         method: 'POST',
         body: formData,
       });
